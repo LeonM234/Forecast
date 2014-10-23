@@ -1,6 +1,4 @@
 // JSONP function + callback
-var url = 'http://api.wunderground.com/api/93c1cec992a886ae/forecast10day/q/TN/37217.json';
-
 function getJSONP(url, cbName){
   var $script = document.createElement('script');
   $script.src = url + '?callback=' + cbName;
@@ -9,7 +7,7 @@ function getJSONP(url, cbName){
 
 function myAwesomeFunction(data){ 
   // Loop over JSON data
-  for (var i = 0; i < 10; i++){
+  for (var i = 0; i < 5; i++){
     var day = data.forecast.simpleforecast.forecastday[i].date.weekday;
 
     var highTemp = data.forecast.simpleforecast.forecastday[i].high.fahrenheit;
@@ -17,9 +15,9 @@ function myAwesomeFunction(data){
     var lowTemp = data.forecast.simpleforecast.forecastday[i].low.fahrenheit;
     
   function addItemToUl(data){
-    var $ulGrabber = document.querySelector('#fiveDays');
+    var $ulGrabber = document.querySelector('#fiveDays'); 
     var $li = document.createElement('li');
-    $li.innerHTML =  day + " " + "High: " + highTemp + ", Low: " + lowTemp;
+    $li.innerHTML =  day + "  " + "High: " + highTemp + "  Low: " + lowTemp;
     $ulGrabber.appendChild($li);
   }
     addItemToUl(); 
@@ -27,8 +25,25 @@ function myAwesomeFunction(data){
 }
 
 
-document.addEventListener("DOMContentLoaded", function(){       
-  getJSONP(url, 'myAwesomeFunction');
+document.addEventListener("DOMContentLoaded", function(){      
+  // Add event listener to 'click' on Get Weather button
+  var $weatherButton = document.getElementById("submit");
+  $weatherButton.addEventListener("click", function(){
+    document.getElementById("fiveDays").innerHTML = "";
+    // Grab user input (the zip code)
+    var $zipInput = document.getElementById("zipInput").value;
+    if ($zipInput.length === 5){
+      // Display this Zip Code's location (San Fran, Nashville, etc)
+      var url = 'http://api.wunderground.com/api/93c1cec992a886ae/forecast10day/q/' + $zipInput + '.json';
+      getJSONP(url, 'myAwesomeFunction');
+    } else {
+      alert("Zip Code must be 5 integer digits!");
+    }
+  });
 });
+
+// To Do Before Starting GeoLocation
+  // Improve if / else statement
+
 
 
