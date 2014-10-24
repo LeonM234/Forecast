@@ -1,0 +1,48 @@
+body {
+  background: rgb(63,76,107);
+}
+
+h1 {
+  color: #00FA9A;
+  font-family: 'Pacifico', cursive;
+  font-weight: 300;
+  font-size: 3em;
+  margin-left: 35%;
+}
+
+form {
+  color: #00FA9A;
+  font-family: 'Josefin Slab', serif;
+}
+
+#zipButton {
+  margin-left: 35%;
+}
+
+#submit {
+  background-color: #00FA9A;
+  padding: 0.2em 1em;
+  border-radius: 20px;
+  font-family: 'Josefin Slab', serif;
+  font-size: 0.8em;
+  font-weight: bold, 300;
+  color: rgb(255, 255, 255);
+}
+
+#zipInput {
+  width: 100px;
+  border-radius: 10px;
+  text-align: center;
+  color: #FF3E96;
+  font-family: 'Josefin Slab', serif;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+ul li {
+  list-style: none;
+  font-family: 'Josefin Slab', serif;
+  color: rgb(255, 255, 255);
+  font-size: 1.5em;
+  text-align: center;
+}
