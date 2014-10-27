@@ -10,6 +10,11 @@ h1 {
   margin-left: 35%;
 }
 
+h2#city {
+  color: #FF3E96;
+  text-align: center;
+}
+
 form {
   color: #00FA9A;
   font-family: 'Josefin Slab', serif;
@@ -19,7 +24,7 @@ form {
   margin-left: 35%;
 }
 
-#submit {
+#submit, #current_location {
   background-color: #00FA9A;
   padding: 0.2em 1em;
   border-radius: 20px;
